@@ -34,7 +34,7 @@ double getAverage(int *array, int SIZE){
 	double average = 0;
 	int sum = 0;
 	for (int i = 0; i < SIZE; i++){
-		sum += array[i];
+		sum += *(array + i);
 	}
 	average = sum/SIZE;
 	cout << "Average: " << average;
@@ -79,6 +79,9 @@ main(){
 	
 return 0;
 }
+
+
+ 
 
 
  
