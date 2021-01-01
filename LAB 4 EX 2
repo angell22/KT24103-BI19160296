@@ -47,7 +47,8 @@ void Delete(){
 	}
 
 	else{
-		cout << "element deleted from queue is: \n" << queueArr[front];
+		cout << "\nelement deleted from queue is:\n" << queueArr[front];
+		cout << "\n";
 		front = front + 1;
 	}
 
