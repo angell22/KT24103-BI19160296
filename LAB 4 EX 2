@@ -16,7 +16,7 @@ public:
 };
 
 void Insert();
-void Del();
+void Delete();
 void Display();
 int queueArr[MAX];
 int rear = -1;
