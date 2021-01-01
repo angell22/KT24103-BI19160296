@@ -1,51 +1,76 @@
+//ANGELL NATHALINE JALUMIE
+//BI19160296
+//LAB 4 EXERCISE 2
+
 #include <iostream>
-using namespace std;     // class Queue
+#include<queue>
+#include <stdio.h>
+#define MAX 999
+
+using namespace std;
+
 class Queue{
-    int queueArr[10];
-    int front;
-    int rear;
-    public:
-    Queue()            // constructor for Queue
-    {
-         front = - 1;
-         rear = - 1;
-    }
-    
-void Insert(int val) {                                          // function to insert element
-    int n=sizeof(queueArr)/sizeof(queueArr[0]);
-   if (rear == n - 1)                                           // check for overflow
-   cout<<"Queue Overflow"<<endl;
-   else {
-      if (front == - 1)
-      {front = 0;
+public:
+	int queueArr, front, rear;
 
-       rear=0;}
-      queueArr[rear] = val;
+};
 
-rear++;
-   }
+void Insert();
+void Del();
+void Display();
+int queueArr[MAX];
+int rear = -1;
+int front = -1;
+
+void Insert(){
+	int add_item;
+	if (rear == MAX -1)
+		cout << "overflow!";
+	else{
+		if (front == -1) // if queue is empty, insert the integer to the queue array
+			front = 0;
+		cout << "insert element in queue: ";
+		cin >> add_item;
+		rear = rear + 1;
+		queueArr[rear] = add_item;
+	}
 }
 
-void Delete() { 
-   if (front == rear) {                       //check for empty
-      cout<<"Queue is empty "<<endl;
-      return ;
-   } else {
-      cout<<"Element deleted from queue is : "<< queueArr[front] <<endl;
-      front++;;
-   }
+void Delete(){
+
+	// Delete front element from queue
+	// if front is not equal to rear (empty)
+
+	if (front == -1 || front > rear){
+		cout << "queue underflow!";
+		return;
+	}
+
+	else{
+		cout << "element deleted from queue is: \n" << queueArr[front];
+		front = front + 1;
+	}
+
 }
-void Display() {                    //check for empty
-   if (front == rear)
-   cout<<"Queue is empty"<<endl;
-   else {
-      cout<<"Queue elements are : ";
-   	  cout<<"Queue elements are : ";
-      for (int i = front; i <= rear; i++)
-      cout<<queueArr[i]<<" ";
-         cout<<endl;
-   }
+
+void Display(){
+
+	// print out the queue array if rear is not equal to front.
+	int i;
+	if (front == -1)
+		cout << "queue is empty\n";
+	else{
+		 cout << "\nQueue is : \n";
+		        for (i = front; i <= rear; i++)
+		            cout << " " << queueArr[i];
+		        cout << "\n";
+
+
+
+	}
+
 }
+
 
 int main() {
    int choice;
@@ -68,6 +93,5 @@ int main() {
          default: cout<<"Invalid choice"<<endl;
       }
    } while(choice!=4);
-   return 0;
+
 }
-};
